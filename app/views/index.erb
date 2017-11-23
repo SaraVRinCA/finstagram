@@ -1,0 +1,42 @@
+
+<header>
+        <h1>&nbsp &nbsp &nbspFinstragram </h1>
+</header>
+<title>Finstragram</title>
+    
+    <main role = "main">
+        
+        <% @post.each do |post| %>
+            <article class = "post">
+                <div class = "user-info">
+                    <img src = "<%= post[:avatar_url] %>" alt = "<%= post[:user_name] %>">
+                    <h2><%= post[:user_name] %></h2>
+                    <h3><%= post[:humanized_time_ago] %></h3>
+                </div>
+                
+                <a class = "photo" href = "#">
+                    <img src = "<%= post[:photo_url] %>" alt = "post <%= post[:user_name]%>">
+                </a>
+                
+                <div class = "actions">
+                    <%= post[:like_count]%> likes
+                    <span class ="comment-count"> <%= post[:comments].length %> comments</span>
+                </div>
+                
+                <ul class ="comments">
+                    <% post[:comments].each do |comment| %>
+                        <li>
+                            <p>
+                                <b>
+                                   <%= comment[:user_name]%>
+                                </b>
+                               : <%= comment[:text]%>
+                               <!--<br><font size = "-3"> Posted <%= post[:humanized_time_ago]%></font>-->
+                               <br><w>Posted <%= post[:humanized_time_ago]%><w>
+                            </p>
+                        </li>
+                    <% end %>
+                </ul>
+            </article>
+        <% end %>
+    </main>

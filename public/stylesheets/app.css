@@ -1,0 +1,35 @@
+header {
+    background-color: #244751;
+    color: #E8FDFF;
+}
+
+body {
+    background-color: wheat;
+}
+
+main { 
+    background-color: white;
+    padding: 16px;
+}
+
+.post {
+    
+    margin-bottom: 48px;
+}
+
+.post .user-info img {
+    border-radius: 50%;
+}
+
+div:hover {
+    color: cadetblue;
+}
+
+w {
+    font-size: 0.7em;
+}
+
+b {
+    font-weight: bold
+}
+
