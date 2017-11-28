@@ -19,7 +19,7 @@
                 </a>
                 
                 <div class = "actions">
-                    <%= post[:like_count]%> likes
+                    <%= post.like_count%> likes
                     <span class ="comment-count"> <%= post[:comments].length %> comments</span>
                 </div>
                 
@@ -28,11 +28,9 @@
                         <li>
                             <p>
                                 <b>
-                                   <%= comment[:user_name]%>
+                                   <%= comment.user.username%>
                                 </b>
-                               : <%= comment[:text]%>
-                               <!--<br><font size = "-3"> Posted <%= post[:humanized_time_ago]%></font>-->
-                               <br><w>Posted <%= post[:humanized_time_ago]%><w>
+                               : <%= comment.text%>
                             </p>
                         </li>
                     <% end %>
