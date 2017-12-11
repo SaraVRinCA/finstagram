@@ -21,10 +21,6 @@ main {
     border-radius: 50%;
 }
 
-div:hover {
-    color: cadetblue;
-}
-
 w {
     font-size: 0.7em;
 }
@@ -32,4 +28,10 @@ w {
 b {
     font-weight: bold
 }
+
+header a
+{
+    
+}
+
 

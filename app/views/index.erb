@@ -1,40 +1,10 @@
+<%  if current_user %>
+    <div class ="new-post">
+        <a href="/posts/new" class="button">New Post</a>
+    </div>
+<% end %>
 
-<header>
-        <h1>&nbsp &nbsp &nbspFinstragram </h1>
-</header>
-<title>Finstragram</title>
-    
-    <main role = "main">
-        
-        <% @posts.each do |post| %>
-            <article class = "post">
-                <div class = "user-info">
-                    <img src = "<%= post.user.avatar_url %>" alt = "<%= post.user.username %>">
-                    <h2><%= post.user.username %></h2>
-                    <h3><%= post.humanized_time_ago %></h3>
-                </div>
-                
-                <a class = "photo" href = "#">
-                    <img src = "<%= post.photo_url %>" alt = "post from <%= post.user.username %>">
-                </a> 
-                
-                <div class = "actions">
-                    <%= post.like_count%> likes
-                    <span class ="comment-count"> <%= post.comment_count %> comments</span>
-                </div>
-                
-                <ul class ="comments">
-                    <% post.comments.each do |comment| %>
-                        <li>
-                            <p>
-                                <b>
-                                   <%= comment.user.username%>
-                                </b>
-                               : <%= comment.text%>
-                            </p>
-                        </li>
-                    <% end %>
-                </ul>
-            </article>
-        <% end %>
-    </main>
+<% @posts.each do |post| %>
+    <%= erb :"shared/post", locals: {post: post}  %>
+<% end %>
+
