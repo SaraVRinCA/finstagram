@@ -1,0 +1,29 @@
+<!-- check if current_user exists -->
+<% if current_user %>
+
+   <!--check is user already has a like for that one post-->
+   <% if like = current_user.likes.find_by({post_id: post.id}) %>
+
+      <form action="/likes/<%= like.id %>" method="POST">
+         <input name="_method" type="hidden" value="delete">
+         <button class="button user_like" type="submit">
+            <%= post.like_count %> likes
+         </button>
+      </form>
+      
+   <% else %>
+   
+      <!--create a like -->
+      <form action="/likes" method="POST">
+         <input type="hidden" name="post_id" value="<%= post.id %>">
+         <button class="button" type="submit">
+             <%= post.like_count %> likes
+         </button>
+      </form>
+   <% end %>
+<% else %>
+
+   <!-- show like count with no form -->
+   <%= post.like_count %> likes
+<% end %>
+      
